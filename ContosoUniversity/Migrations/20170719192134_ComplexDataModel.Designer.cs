@@ -8,9 +8,10 @@ using ContosoUniversity.Data;
 namespace ContosoUniversity.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    partial class SchoolContextModelSnapshot : ModelSnapshot
+    [Migration("20170719192134_ComplexDataModel")]
+    partial class ComplexDataModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -59,10 +60,6 @@ namespace ContosoUniversity.Migrations
 
                     b.Property<string>("Name")
                         .HasMaxLength(50);
-
-                    b.Property<byte[]>("RowVersion")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate();
 
                     b.Property<DateTime>("StartDate");
 
